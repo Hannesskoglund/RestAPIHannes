@@ -99,6 +99,13 @@ namespace RestAPIHannes.Controllers
                 return NotFound("Ad not found");
             }
 
+            if (ad.Operations.Any(o =>
+      string.Equals(o.path?.Trim('/'), "id", StringComparison.OrdinalIgnoreCase)))
+            {
+                return BadRequest("Id cannot be changed.");
+            }
+
+
             ad.ApplyTo(AdToPatch, error =>
             {
                 ModelState.AddModelError(
@@ -106,6 +113,8 @@ namespace RestAPIHannes.Controllers
                     error.ErrorMessage
                 );
             });
+
+            AdToPatch.Id = id;
 
             if (!ModelState.IsValid)
             {
@@ -117,7 +126,7 @@ namespace RestAPIHannes.Controllers
                 return BadRequest(ModelState);
             }
 
-
+          
 
 
             await _dbContext.SaveChangesAsync();
