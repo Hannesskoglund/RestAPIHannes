@@ -9,7 +9,7 @@ namespace RestAPIHannes.Data
         {
         }
 
-        public DbSet<Advert> Ads { get; set; }
+        public DbSet<Ad> Ads { get; set; }
     }
 
 }

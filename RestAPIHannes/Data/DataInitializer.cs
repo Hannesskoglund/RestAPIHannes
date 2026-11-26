@@ -21,9 +21,9 @@ namespace RestAPIHannes.Data
 
         public void SeedData()
         {
-            if (!dbContext.Ads.Any(e => e.Title == "iPhone 14"))
+            if (!dbContext.Ads.Any())
             {
-                dbContext.Add(new Advert
+                dbContext.Add(new Ad
                 {
                     Title = "iPhone 14",
                     Description = "iPhone 14 i mycket gott skick, knappt använd.",
@@ -34,11 +34,10 @@ namespace RestAPIHannes.Data
                     SellerName = "Anna Andersson",
                     SellerEmail = "anna@example.com"
                 });
-            }
 
-            if (!dbContext.Ads.Any(e => e.Title == "Gaming PC"))
-            {
-                dbContext.Add(new Advert
+
+
+                dbContext.Add(new Ad
                 {
                     Title = "Gaming PC",
                     Description = "Kraftfull gamingdator med RTX 4070 och 32GB RAM.",
@@ -49,11 +48,11 @@ namespace RestAPIHannes.Data
                     SellerName = "Erik Svensson",
                     SellerEmail = "erik@example.com"
                 });
-            }
 
-            if (!dbContext.Ads.Any(e => e.Title == "IKEA Soffa"))
-            {
-                dbContext.Add(new Advert
+
+
+
+                dbContext.Add(new Ad
                 {
                     Title = "IKEA Soffa",
                     Description = "Grå tresitssoffa från IKEA. Fint skick.",
@@ -64,11 +63,11 @@ namespace RestAPIHannes.Data
                     SellerName = "Lisa Karlsson",
                     SellerEmail = "lisa@example.com"
                 });
-            }
 
-            if (!dbContext.Ads.Any(e => e.Title == "Mountainbike"))
-            {
-                dbContext.Add(new Advert
+
+
+
+                dbContext.Add(new Ad
                 {
                     Title = "Mountainbike",
                     Description = "Mountainbike med 21 växlar. Perfekt för skog och terräng.",
