@@ -4,14 +4,14 @@ GET {{RestAPIHannes_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###Get All
-GET {{RestAPIHannes_HostAddress}}/api/Ad
+GET {{RestAPIHannes_HostAddress}}/Ads
 
 
 ###Get Single
-GET {{RestAPIHannes_HostAddress}}/api/Ad/4
+GET {{RestAPIHannes_HostAddress}}/Ads/3
 
 ###Create new
-POST {{RestAPIHannes_HostAddress}}/api/Ad
+POST {{RestAPIHannes_HostAddress}}/Ads
 Content-Type: application/json
 {
     "title": "iPhone 15 Pro",
@@ -25,7 +25,7 @@ Content-Type: application/json
 }
 
 ###Update
-PUT {{RestAPIHannes_HostAddress}}/api/Ad/2
+PUT {{RestAPIHannes_HostAddress}}/Ads/2
 Content-Type: application/json
 {
   "title": "Samsung Galaxy S25",
@@ -39,17 +39,19 @@ Content-Type: application/json
 }
 
 ###Delete
-DELETE {{RestAPIHannes_HostAddress}}/api/Ad/6
+DELETE {{RestAPIHannes_HostAddress}}/Ads/4
 
 ###Patch 
 
-PATCH {{RestAPIHannes_HostAddress}}/api/Ad/3 HTTP/1.1
+PATCH {{RestAPIHannes_HostAddress}}/Ads/3 HTTP/1.1
 Content-Type: application/json
 
 [
   {
     "op": "replace",
     "path": "/price",
-    "value": 50.00
+    "value": 500.00
   }
+
+
 ]

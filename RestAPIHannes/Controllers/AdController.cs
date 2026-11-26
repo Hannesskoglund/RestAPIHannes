@@ -7,7 +7,7 @@ using RestAPIHannes.Models;
 
 namespace RestAPIHannes.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("Ads")]
     [ApiController]
     public class AdController : ControllerBase
     {
@@ -51,7 +51,7 @@ namespace RestAPIHannes.Controllers
 
             };
             _dbContext.Ads.Add(ad);
-            _dbContext.SaveChangesAsync();
+            await _dbContext.SaveChangesAsync();
             return CreatedAtAction(nameof(Get), new { id = ad.Id }, ad);
         }
 
@@ -116,6 +116,8 @@ namespace RestAPIHannes.Controllers
             {
                 return BadRequest(ModelState);
             }
+
+
 
 
             await _dbContext.SaveChangesAsync();
