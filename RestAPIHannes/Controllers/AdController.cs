@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RestAPIHannes.Data;
@@ -88,9 +89,8 @@ namespace RestAPIHannes.Controllers
         [HttpPatch]
         [Route("{id:int}")]
         public async Task<ActionResult<Ad>>
-    PatchHero(JsonPatchDocument<Ad> hero, int id)
+    PatchAd(JsonPatchDocument<Ad> ad, int id)
         {
-            // OBS: PATCH Uppdaterar SuperHero (VISSA properties)
             var AdToPatch = await
                 _dbContext.Ads.FindAsync(id);
 
@@ -99,7 +99,7 @@ namespace RestAPIHannes.Controllers
                 return NotFound("Ad not found");
             }
 
-            hero.ApplyTo(AdToPatch, error =>
+            ad.ApplyTo(AdToPatch, error =>
             {
                 ModelState.AddModelError(
                     string.Empty,
@@ -120,7 +120,7 @@ namespace RestAPIHannes.Controllers
 
             await _dbContext.SaveChangesAsync();
 
-            return NoContent();
+            return Ok();
         }
     }
 }
