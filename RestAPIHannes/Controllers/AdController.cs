@@ -122,7 +122,7 @@ namespace RestAPIHannes.Controllers
 
             await _dbContext.SaveChangesAsync();
 
-            return Ok();
+            return Ok(AdToPatch);
         }
     }
 }
